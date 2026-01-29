@@ -1,0 +1,14 @@
+# Dados brutos
+desafio_01_api_ans/data/raw/
+desafio_01_api_ans/data/processed/
+
+# Outputs gerados
+desafio_01_api_ans/output/
+
+# Arquivos grandes
+*.csv
+*.zip
+
+# Cache Python
+__pycache__/
+*.pyc
