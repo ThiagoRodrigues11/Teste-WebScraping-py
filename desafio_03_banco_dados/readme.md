@@ -2,7 +2,7 @@
 
 Este diretório contém a solução completa para o Desafio 3, focando na estruturação, importação e análise de dados de operadoras de saúde e suas despesas assistenciais.
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 - `sql/schema.sql`: Definições DDL (Criação de tabelas, chaves e índices).
 - `sql/import.sql`: Scripts para importação e tratamento de dados dos CSVs.
 - `sql/analise.sql`: Queries analíticas para responder às perguntas de negócio.
@@ -10,7 +10,7 @@ Este diretório contém a solução completa para o Desafio 3, focando na estrut
 
 ---
 
-## 🛠️ 3.2. Estrutura e Trade-offs Técnicos
+## 3.2. Estrutura e Trade-offs Técnicos
 
 ### Normalização: Opção B (Tabelas Normalizadas)
 **Escolha**: Tabelas separadas para cadastro (`operadoras`), fatos de despesas (`despesas_consolidadas`) e resumo (`despesas_agregadas`).
@@ -24,7 +24,7 @@ Este diretório contém a solução completa para o Desafio 3, focando na estrut
 
 ---
 
-## 📥 3.3. Importação e Trata-fomento de Inconsistências
+## 3.3. Importação e Trata-fomento de Inconsistências
 
 Durante a carga dos dados, implementamos as seguintes lógicas de resiliência:
 - **Encoding (Resolução Definitiva)**: Para solucionar o bug de caracteres "zoados" (ex: `SAÃšDE` em vez de `SAÚDE`), todos os scripts de leitura e escrita foram padronizados para o encoding `utf-8-sig`. No script de teste (`sqlite_test.py`), implementamos uma camada de limpeza adicional que garante que os relatórios analíticos sejam 100% legíveis no Windows.
@@ -34,7 +34,7 @@ Durante a carga dos dados, implementamos as seguintes lógicas de resiliência:
 
 ---
 
-## 📊 3.4. Queries Analíticas e Desafios
+## 3.4. Queries Analíticas e Desafios
 
 ### Query 1: Maior Crescimento Percentual
 - **Desafio**: Operadoras que não possuem dados em todos os períodos.
@@ -49,7 +49,7 @@ Durante a carga dos dados, implementamos as seguintes lógicas de resiliência:
 
 ---
 
-## 🚀 Como Executar o Teste de Validação
+## Como Executar o Teste de Validação
 
 Para validar as queries e os dados sem precisar configurar um servidor SQL completo, utilize o simulador SQLite incluído:
 

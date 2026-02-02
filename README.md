@@ -4,11 +4,11 @@ Este repositório contém a resolução completa dos quatro desafios técnicos p
 
 ---
 
-## 🚀 Visão Geral do Projeto
+## Visão Geral do Projeto
 
 O objetivo principal é processar as demonstrações contábeis das operadoras de saúde brasileiras, realizando validações rigorosas, cruzamento de dados cadastrais e disponibilização de insights através de SQL e uma aplicação Web Full-Stack.
 
-### 📁 Estrutura do Repositório
+### Estrutura do Repositório
 
 - **[desafio_01_api_ans](./desafio_01_api_ans)**: Integração com API pública, download e consolidação dos últimos 3 trimestres de despesas.
 - **[desafio_02_transformacao_validacao](./desafio_02_transformacao_validacao)**: Limpeza de dados, validação de CNPJ e enriquecimento com dados cadastrais.
@@ -17,7 +17,7 @@ O objetivo principal é processar as demonstrações contábeis das operadoras d
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Linguagem**: Python 3.13
 - **Processamento de Dados**: Pandas, Requests, BeautifulSoup4.
@@ -28,7 +28,7 @@ O objetivo principal é processar as demonstrações contábeis das operadoras d
 
 ---
 
-## 🚥 Como Executar os Desafios
+## Como Executar os Desafios
 
 ### Pré-requisitos
 - Python 3.x instalado.
@@ -72,7 +72,7 @@ npm run dev
 
 ---
 
-## 🛡️ Decisões Técnicas de Destaque
+## Decisões Técnicas de Destaque
 
 1.  **Resolução de Acentuação**: Implementada a padronização global com `utf-8-sig` e camadas de limpeza de string para eliminar bugs de caracteres especiais em nomes de operadoras e modalidades.
 2.  **Performance de Dados**: Processamento incremental de arquivos CSV massivos (mais de 2 milhões de linhas) para garantir estabilidade em qualquer máquina.

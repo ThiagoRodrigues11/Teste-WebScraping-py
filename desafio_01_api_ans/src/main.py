@@ -21,14 +21,14 @@ def baixar_cadastro_operadoras():
     destino = RAW_DIR / "cadastro_operadoras.csv"
 
     if destino.exists():
-        print("✅ Cadastro de operadoras já existe.")
+        print("Cadastro de operadoras já existe.")
         return destino
 
-    print("📥 Baixando cadastro de operadoras da ANS...")
+    print("Baixando cadastro de operadoras da ANS...")
     r = requests.get(url)
     r.raise_for_status()
     destino.write_bytes(r.content)
-    print("✅ Cadastro salvo.")
+    print("Cadastro salvo.")
     return destino
 
 
@@ -37,7 +37,7 @@ def carregar_cadastro_operadoras():
 
     df = pd.read_csv(path, sep=";", encoding="utf-8-sig", dtype=str)
 
-    print("\n🔎 COLUNAS DO CADASTRO:")
+    print("\nCOLUNAS DO CADASTRO:")
     print(df.columns.tolist())
 
     # 🔥 PADRONIZAÇÃO CORRETA
@@ -48,7 +48,7 @@ def carregar_cadastro_operadoras():
 
     df["REG_ANS"] = df["REG_ANS"].str.strip()
 
-    print("\n🔎 PREVIEW CADASTRO (CHAVE CORRETA):")
+    print("\nPREVIEW CADASTRO (CHAVE CORRETA):")
     print(df[["REG_ANS", "CNPJ", "RazaoSocial"]].head())
 
     return df[["REG_ANS", "CNPJ", "RazaoSocial"]]
@@ -69,10 +69,10 @@ def consolidar_despesas():
             continue
 
         for arquivo in pasta.glob("*.csv"):
-            print(f"\n📄 Lendo {arquivo}...")
+            print(f"\nLendo {arquivo}...")
             df = pd.read_csv(arquivo, sep=";", encoding="utf-8-sig", dtype=str)
 
-            print("🔎 COLUNAS DESPESAS:")
+            print("COLUNAS DESPESAS:")
             print(df.columns.tolist())
 
             # Renomeia coluna correta de valor
@@ -89,7 +89,7 @@ def consolidar_despesas():
 
             df = df[["REG_ANS", "Ano", "Trimestre", "ValorDespesas"]]
 
-            print("\n🔎 PREVIEW DESPESAS:")
+            print("\nPREVIEW DESPESAS:")
             print(df.head())
 
             dfs.append(df)
@@ -113,7 +113,7 @@ def consolidar_despesas():
         validate="many_to_one"
     )
 
-    print("\n🔎 PREVIEW APÓS MERGE:")
+    print("\nPREVIEW APÓS MERGE:")
     print(final.head())
 
     # ==================================================
@@ -131,10 +131,10 @@ def consolidar_despesas():
         "ValorDespesas"
     ]]
 
-    print("\n🔎 COLUNAS FINAIS:")
+    print("\nCOLUNAS FINAIS:")
     print(final.columns.tolist())
 
-    print("\n🔎 PREVIEW FINAL:")
+    print("\nPREVIEW FINAL:")
     print(final.head())
 
     # ==================================================
@@ -149,8 +149,8 @@ def consolidar_despesas():
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(csv_path, arcname="consolidado_despesas.csv")
 
-    print("\n✅ CONSOLIDAÇÃO FINALIZADA COM SUCESSO")
-    print(f"📦 {zip_path}")
+    print("\nCONSOLIDAÇÃO FINALIZADA COM SUCESSO")
+    print(f"Arquivo: {zip_path}")
 
 
 # ==================================================

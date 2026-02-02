@@ -2,13 +2,13 @@
 
 Este projeto consiste em uma plataforma de visualização de dados da ANS, composta por um backend robusto em Python e um frontend moderno e reativo em Vue.js 3.
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 - **Backend**: FastAPI, SQLite, Pydantic, Uvicorn.
 - **Frontend**: Vue.js 3 (Composition API), Vite, Pinia, Vue Router, Axios, Chart.js, Lucide Icons.
 
 ---
 
-## 🛠️ Justificativas e Trade-offs: Backend
+## Justificativas e Trade-offs: Backend
 
 ### 4.2.1. Escolha do Framework: Option B (FastAPI)
 - **Justificativa**: Escolhido pela alta performance (async nativo) e facilidade de manutenção. O FastAPI gera documentação automática (Swagger) e utiliza Pydantic para validação de tipos, o que reduz drasticamente erros de comunicação com o frontend. Comparado ao Flask, o FastAPI é mais moderno e escala melhor para APIs REST.
@@ -24,7 +24,7 @@ Este projeto consiste em uma plataforma de visualização de dados da ANS, compo
 
 ---
 
-## 🎨 Justificativas e Trade-offs: Frontend
+## Justificativas e Trade-offs: Frontend
 
 ### 4.3.1. Estratégia de Busca/Filtro: Option A (Busca no Servidor)
 - **Justificativa**: Embora tenhamos "apenas" 4.000 operadoras, o volume de despesas associadas chega a milhões. Realizar filtros no servidor garante que a aplicação frontend permaneça leve e rápida, carregando apenas o necessário através da API paginada.
@@ -42,7 +42,7 @@ Este projeto consiste em uma plataforma de visualização de dados da ANS, compo
 
 ---
 
-## 📂 Como Executar
+## Como Executar
 
 ### 1. Backend
 ```bash
@@ -62,5 +62,5 @@ O dashboard estará disponível em `http://localhost:5173`.
 
 ---
 
-## 📝 Documentação API
+## Documentação API
 A coleção completa para o Postman está localizada em: `postman/ans_api_collection.json`.
