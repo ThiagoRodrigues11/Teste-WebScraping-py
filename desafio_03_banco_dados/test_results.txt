@@ -1,0 +1,25 @@
+--- RESULTADOS DO TESTE ---
+
+QUERY 1:
+                                      RazaoSocial  Gasto_Inicial  Gasto_Final  Crescimento_Perc
+          SELECT OPERADORA DE PLANO DE SAUDE LTDA   762112425.28 3.465030e+09            354.66
+                    EXCELÊNCIA PLANO DE SAÚDE S/A    38243081.60 1.577446e+08            312.48
+         TOTAL ASSISTÊNCIA MÉDICA HOSPITALAR LTDA    75708026.72 2.810842e+08            271.27
+       EGRÉGORA  ADMINISTRADORA DE BENEFICIOS S/A     9600016.00 3.460413e+07            260.46
+SOCIODONTO PLANO DE ASSISTÊNCIA ODONTOLÓGICA LTDA     1460660.00 5.136088e+06            251.63
+
+QUERY 2:
+UF     Total_UF  Media_Por_Operadora
+SP 8.908965e+12         3.170450e+10
+RJ 5.750445e+12         7.188056e+10
+CE 1.878520e+12         1.105012e+11
+MG 1.447556e+12         1.328033e+10
+DF 9.636361e+11         4.588744e+10
+
+QUERY 3:
+                                                  RazaoSocial  Trimestres_Acima_Media
+                                  FUNDAÇÃO DE SAÚDE ITAIGUAPY                       3
+                                 HUMANA SAÚDE NORDESTE LTDA.                        3
+               PREVENT SENIOR PRIVATE OPERADORA DE SAÚDE LTDA                       3
+FUNDAÇÃO ASSISTENCIAL DOS SERVIDORES DO MINISTÉRIO DA FAZENDA                       3
+                                   CENTRO CLÍNICO GAÚCHO LTDA                       3
