@@ -1,0 +1,17 @@
+# Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.db
+backend/ans.db
+
+# Environment variables
+.env
+.venv
+venv/
+env/
+
+# Reports
+test_results.txt
+encoding_check.txt
+check_encoding.py

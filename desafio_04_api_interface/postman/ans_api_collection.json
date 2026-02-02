@@ -1,0 +1,107 @@
+{
+    "info": {
+        "_postman_id": "713f0648-43d9-4806-b384-59e519213450",
+        "name": "ANS Data API",
+        "description": "API para consulta de operadoras de saúde e despesas assistenciais.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Listar Operadoras",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/operadoras?page=1&limit=10&search=UNIMED",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "operadoras"
+                    ],
+                    "query": [
+                        {
+                            "key": "page",
+                            "value": "1"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        },
+                        {
+                            "key": "search",
+                            "value": "UNIMED"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Detalhe da Operadora",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/operadoras/41511429000120",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "operadoras",
+                        "41511429000120"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Histórico de Despesas",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/operadoras/41511429000120/despesas",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "operadoras",
+                        "41511429000120",
+                        "despesas"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Estatísticas Gerais",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/estatisticas",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "estatisticas"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
