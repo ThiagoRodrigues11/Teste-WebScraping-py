@@ -42,7 +42,7 @@ def main():
     # Vamos carregar o CSV consolidado do teste 1.3
     try:
         # Lendo com low_memory=False para evitar o aviso de Dtype
-        df = pd.read_csv(input_path, low_memory=False)
+        df = pd.read_csv(input_path, low_memory=False, encoding='utf-8-sig')
     except Exception as e:
         print(f"Erro ao ler o arquivo: {e}")
         return
@@ -78,9 +78,9 @@ def main():
     print("Lendo dados cadastrais...")
     # O arquivo da ANS costuma usar latin-1 ou cp1252 e separador ';'
     try:
-        df_cadop = pd.read_csv(cadop_path, sep=';', encoding='latin-1')
+        df_cadop = pd.read_csv(cadop_path, sep=';', encoding='utf-8-sig')
     except:
-        df_cadop = pd.read_csv(cadop_path, sep=';', encoding='utf-8')
+        df_cadop = pd.read_csv(cadop_path, sep=';', encoding='latin-1')
 
     # Limpeza básica do cadastro para o join
     # Garantir que CNPJ seja string e formatado uniformemente

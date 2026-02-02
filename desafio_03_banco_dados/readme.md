@@ -27,7 +27,7 @@ Este diretório contém a solução completa para o Desafio 3, focando na estrut
 ## 📥 3.3. Importação e Trata-fomento de Inconsistências
 
 Durante a carga dos dados, implementamos as seguintes lógicas de resiliência:
-- **Encoding**: Tratamento de caracteres especiais (UTF-8 com fallback para Latin-1) para evitar erros em nomes com acentos.
+- **Encoding (Resolução Definitiva)**: Para solucionar o bug de caracteres "zoados" (ex: `SAÃšDE` em vez de `SAÚDE`), todos os scripts de leitura e escrita foram padronizados para o encoding `utf-8-sig`. No script de teste (`sqlite_test.py`), implementamos uma camada de limpeza adicional que garante que os relatórios analíticos sejam 100% legíveis no Windows.
 - **Valores NULL/Vazios**: Campos de valor obrigatório são tratados com `COALESCE` e convertidos para `0.00` para não quebrar cálculos estatísticos.
 - **Strings em Campos Numéricos**: Limpeza via Regex para garantir que CNPJs contenham apenas números e que símbolos monetários/milhares sejam removidos antes do cast numérico.
 - **Formatos de Data**: Conversão do formato "AAAA-QT" (ex: 2024-1T) para o primeiro dia do respectivo trimestre para padronização.

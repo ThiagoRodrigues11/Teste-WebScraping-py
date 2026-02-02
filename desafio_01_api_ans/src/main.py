@@ -35,7 +35,7 @@ def baixar_cadastro_operadoras():
 def carregar_cadastro_operadoras():
     path = baixar_cadastro_operadoras()
 
-    df = pd.read_csv(path, sep=";", encoding="latin1", dtype=str)
+    df = pd.read_csv(path, sep=";", encoding="utf-8-sig", dtype=str)
 
     print("\n🔎 COLUNAS DO CADASTRO:")
     print(df.columns.tolist())
@@ -70,7 +70,7 @@ def consolidar_despesas():
 
         for arquivo in pasta.glob("*.csv"):
             print(f"\n📄 Lendo {arquivo}...")
-            df = pd.read_csv(arquivo, sep=";", encoding="latin1", dtype=str)
+            df = pd.read_csv(arquivo, sep=";", encoding="utf-8-sig", dtype=str)
 
             print("🔎 COLUNAS DESPESAS:")
             print(df.columns.tolist())
@@ -144,7 +144,7 @@ def consolidar_despesas():
     csv_path = OUTPUT_DIR / "consolidado_despesas.csv"
     zip_path = OUTPUT_DIR / "consolidado_despesas.zip"
 
-    final.to_csv(csv_path, index=False, encoding="utf-8")
+    final.to_csv(csv_path, index=False, encoding="utf-8-sig")
 
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(csv_path, arcname="consolidado_despesas.csv")

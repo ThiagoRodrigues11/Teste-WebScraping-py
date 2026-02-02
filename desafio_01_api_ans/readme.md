@@ -30,6 +30,11 @@ Os dados dos 3 trimestres são unificados em um único CSV com as colunas: `CNPJ
     - **Abordagem**: Padronização sistemática para o formato `YYYY/QQ`.
     - **Justificativa**: Garante a integridade temporal nas análises comparativas.
 
+## ⚙️ Padronização de Encoding (Resolução de Acentos)
+Os arquivos originais da ANS frequentemente utilizam codificações legadas (como Latin-1). Para garantir que nomes de operadoras com acentos (ex: "SAÚDE", "CONCEIÇÃO") sejam preservados corretamente em todos os sistemas (Windows, Linux, Bancos de Dados):
+- **Solução**: Todos os arquivos de saída agora são salvos utilizando o encoding `utf-8-sig`.
+- **Por que `utf-8-sig`?**: Esta variante adiciona um "Byte Order Mark" (BOM) que força aplicativos como Excel e editores de texto no Windows a reconhecerem imediatamente o arquivo como UTF-8, evitando caracteres corrompidos (`mojibake`).
+
 ---
 
 ## Entrega Final

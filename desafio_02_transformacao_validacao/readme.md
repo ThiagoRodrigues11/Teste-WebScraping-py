@@ -36,6 +36,11 @@ Os dados foram agrupados por `RazaoSocial`, `UF`, `CNPJ`, `RegistroANS` e `Modal
 - **Estratégia**: Ordenação via Pandas `sort_values` (QuickSort interno).
 - **Justificativa**: O resultado final agregado possui cerca de 800-1000 linhas (número total de operadoras ativas). A ordenação em memória é virtualmente instantânea e permite priorizar a visualização das operadoras com maior impacto financeiro no setor.
 
+### Padronização de Encoding:
+Para garantir a continuidade da integridade dos dados iniciada no Desafio 1:
+- O script realiza a leitura do consolidado e do cadastro utilizando `utf-8-sig`.
+- O resultado final agregado é exportado em `utf-8-sig`, garantindo que acentos e caracteres especiais brasileros sejam exibidos corretamente em qualquer ferramenta de visualização.
+
 ---
 
 ## Entrega Final

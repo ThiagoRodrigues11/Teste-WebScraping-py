@@ -29,21 +29,21 @@ def run_test():
     # 1. Carregar Operadoras
     print("Carregando dados cadastrais...")
     try:
-        # Relatorio_cadop costuma ser latin-1
-        df_cadop = pd.read_csv(cadop_path, sep=';', encoding='latin-1')
-        df_cadop = clean_text(df_cadop, 'Razao_Social')
+        # Relatorio_cadop agora é processado como utf-8-sig
+        df_cadop = pd.read_csv(cadop_path, sep=';', encoding='utf-8-sig')
         df_cadop = df_cadop[['CNPJ', 'REGISTRO_OPERADORA', 'Modalidade', 'UF', 'Razao_Social']].drop_duplicates(subset=['CNPJ'])
         df_cadop.to_sql('operadoras', conn, index=False)
     except Exception as e:
-        print(f"Erro ao carregar operadoras: {e}")
+        # Fallback para latin-1 caso o download original ainda esteja lá
+        df_cadop = pd.read_csv(cadop_path, sep=';', encoding='latin-1')
+        df_cadop = df_cadop[['CNPJ', 'REGISTRO_OPERADORA', 'Modalidade', 'UF', 'Razao_Social']].drop_duplicates(subset=['CNPJ'])
+        df_cadop.to_sql('operadoras', conn, index=False)
 
     # 2. Carregar Despesas
     print("Carregando despesas (Base completa)...")
     try:
-        # Nosso consolidado foi salvo em UTF-8 no Desafio 1
-        df_despesas = pd.read_csv(despesas_path, low_memory=False, encoding='utf-8')
-        # Se por algum motivo o UTF-8 salvou caracteres zoados, limpamos também
-        df_despesas = clean_text(df_despesas, 'RazaoSocial')
+        # Nosso consolidado agora é salvo em utf-8-sig
+        df_despesas = pd.read_csv(despesas_path, low_memory=False, encoding='utf-8-sig')
         
         df_despesas['data_referencia'] = df_despesas['Ano'].astype(str) + "-" + \
                                        df_despesas['Trimestre'].apply(lambda x: '01' if '1' in str(x) else ('04' if '2' in str(x) else '07' if '3' in str(x) else '10')) + "-01"
