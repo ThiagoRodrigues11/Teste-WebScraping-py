@@ -14,6 +14,7 @@ O objetivo principal é processar as demonstrações contábeis das operadoras d
 - **[desafio_02_transformacao_validacao](./desafio_02_transformacao_validacao)**: Limpeza de dados, validação de CNPJ e enriquecimento com dados cadastrais.
 - **[desafio_03_banco_dados](./desafio_03_banco_dados)**: Modelagem SQL (DDL), scripts de importação e queries analíticas de negócio.
 - **[desafio_04_api_interface](./desafio_04_api_interface)**: API RESTful (FastAPI) e Dashboard Web (Vue.js 3) para visualização dos dados.
+- **[tests](./tests)**: Suíte de testes automatizados (Unitários e de Integração).
 
 ---
 
@@ -70,6 +71,13 @@ npm install
 npm run dev
 ```
 
+### Passo 5: Testes Automatizados
+Garante a integridade da lógica de validação e o funcionamento das rotas da API.
+```bash
+# Execute na raiz do projeto
+pytest
+```
+
 ---
 
 ## Decisões Técnicas de Destaque
@@ -77,7 +85,7 @@ npm run dev
 1.  **Resolução de Acentuação**: Implementada a padronização global com `utf-8-sig` e camadas de limpeza de string para eliminar bugs de caracteres especiais em nomes de operadoras e modalidades.
 2.  **Performance de Dados**: Processamento incremental de arquivos CSV massivos (mais de 2 milhões de linhas) para garantir estabilidade em qualquer máquina.
 3.  **Modernidade Web**: Utilização de Vue 3 com Composition API e Pinia para um gerenciamento de estado escalável e reativo.
-4.  **Integridade**: Validação algorítmica de CNPJ e tratamento de operadoras sem dados no período histórico.
+4.  **Integridade e Qualidade**: Validação algorítmica de CNPJ e suíte de testes automatizados com Pytest para garantir a estabilidade das entregas.
 
 ---
 
